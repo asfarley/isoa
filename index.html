@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>  
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <title>Interjurisdictional Support Orders [A]</title>
+  <!-- <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon"> -->
+  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Gudea' type='text/css'>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  </head>
+  <body>
+  
+  <div class="container">
+	<div class="page-header">
+        <h1>Interjurisdictional Support Orders [A]: <br>
+		Which Legislation Applies?</h1>
+        <p class="lead">The Federal Divorce Act vs Provincial Laws</p>
+      </div>
+	  
+	  <div class="question" id="q1">
+	  <h3 >Were the parties married?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="1" onclick="QuestionResponse1()" value="yes">Yes</label>
+		<label><input type="radio" name="1" onclick="QuestionResponse1()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q2">
+	  <h3 >Is there an existing order for support that the applicant wants to vary?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="2" onclick="QuestionResponse2()" value="yes">Yes</label>
+		<label><input type="radio" name="2" onclick="QuestionResponse2()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q3">
+	  <h3 >Were the parties already divorced in Canada?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="3" onclick="QuestionResponse3()" value="yes">Yes</label>
+		<label><input type="radio" name="3" onclick="QuestionResponse3()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q4">
+	  <h3>Is there an existing proceeding before a Canadian Court seeking divorce?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="4" onclick="QuestionResponse4()" value="yes">Yes</label>
+		<label><input type="radio" name="4" onclick="QuestionResponse4()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q5">
+	  <h3>Does the Applicant want to apply now for divorce and support?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="5" onclick="QuestionResponse5()" value="yes">Yes</label>
+		<label><input type="radio" name="5" onclick="QuestionResponse5()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q6">
+	  <h3>Does this proceeding also claim support?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="6" onclick="QuestionResponse6()" value="yes">Yes</label>
+		<label><input type="radio" name="6" onclick="QuestionResponse6()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q7">
+	  <h3>Was this order made under the <i>Divorce Act</i>? <br>
+	  (i.e., as part of a proceeding in Canada in which divorce was sought)
+	  </h3>
+	  <div class="radio">
+		<label><input type="radio" name="7" onclick="QuestionResponse7()" value="yes">Yes</label>
+		<label><input type="radio" name="7" onclick="QuestionResponse7()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="answer">
+	  <p id="answertext"></p>
+	  </div>	  
+  </div>
+  
+  <script type="text/javascript">
+  var a1 = "Divorce Act variation provisions apply (Refer to Divorce Act Procedures).";
+  var a2 = "Provincial Laws apply (Refer to Provincial Law Procedures).";
+  var a3 = "<strong>Note:</strong> The reference to provincial laws in this presentation relates to procedural laws only. Jurisdictional issues relating to issues ofwhich law governs entitlement, duration and amount of support are outside the scope of this presentation.";
+  var a4 = "File Originating Application for divorce and support (Refer to Divorce Act Procedures)";
+  var a5 = "Options to either continue with existing proceeding under Divorce Act or, if that proceeding was in another province and you wish to apply in NL, discontinue that support proceeding and elect to proceed anew under either the Divorce Act (Refer to Divorce Act Procedures) or Provincial Laws (Refer to Provincial Law Procedures).";
+  var a6 = "Applicant can either apply for support under the Divorce Act by filing an Originating Application (Refer to Divorce Act Procedures) or elect to have Provincial Laws apply (Refer to Provincial Law Procedures)";
+  
+   function autorun()
+   {
+		$('#q1').css("display", "inline");
+		//$('#q1').css("visibility", "visible");
+		$('#answertext').html(a3);
+   }
+   if (window.addEventListener) window.addEventListener("load", autorun, false);
+   else if (window.attachEvent) window.attachEvent("onload", autorun);
+   else window.onload = autorun;
+   
+   function QuestionResponse1()
+   {
+	var response = $('input[name=1]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		switch(response)
+		{
+			case "yes":
+			//$('#q1').css("visibility", "hidden");
+			$('#q1').css("display", "none");
+			$('#q2').css("display", "inline");
+			$('#answertext').html("");
+			break;
+			case "no":
+			$('#q1').css("display", "none");
+			$('#answertext').html(a2);
+			break;
+			default:
+			break;
+		}
+	}
+   }
+   
+   function QuestionResponse2()
+   {
+	var response = $('input[name=2]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		switch(response)
+		{
+			case "yes":
+			$('#q2').css("display", "none");
+			$('#q7').css("display", "inline");
+			break;
+			case "no":
+			$('#q2').css("display", "none");
+			$('#q3').css("display", "inline");
+			break;
+			default:
+			break;
+		}
+	}
+   }
+   
+   function QuestionResponse3()
+   {
+	var response = $('input[name=3]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		switch(response)
+		{
+			case "yes":
+			$('#q3').css("display", "none");
+			$('#answertext').html(a6);
+			break;
+			case "no":
+			$('#q3').css("display", "none");
+			$('#q4').css("display", "inline");
+			break;
+			default:
+			break;
+		}
+	}
+   }
+   
+    function QuestionResponse4()
+   {
+	var response = $('input[name=4]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		switch(response)
+		{
+			case "yes":
+			$('#q4').css("display", "none");
+			$('#q6').css("display", "inline");
+			break;
+			case "no":
+			$('#q4').css("display", "none");
+			$('#q5').css("display", "inline");
+			break;
+			default:
+			break;
+		}
+	}
+   }
+
+    function QuestionResponse5()
+   {
+	var response = $('input[name=5]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		switch(response)
+		{
+			case "yes":
+			$('#q5').css("display", "none");
+			$('#answertext').html(a4);
+			break;
+			case "no":
+			$('#q5').css("display", "none");
+			$('#answertext').html(a2);
+			break;
+			default:
+			break;
+		}
+	}
+   }
+
+    function QuestionResponse6()
+   {
+	var response = $('input[name=6]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		switch(response)
+		{
+			case "yes":
+			$('#q6').css("display", "none");
+			$('#answertext').html(a5);
+			break;
+			case "no":
+			$('#q6').css("display", "none");
+			$('#answertext').html(a6);
+			break;
+			default:
+			break;
+		}
+	}
+   }   
+   function QuestionResponse7()
+   {
+	var response = $('input[name=7]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		switch(response)
+		{
+			case "yes":
+			$('#q7').css("display", "none");
+			$('#answertext').html(a1);
+			break;
+			case "no":
+			$('#q7').css("display", "none");
+			$('#answertext').html(a2);
+			break;
+			default:
+			break;
+		}
+	}
+   }
+  </script>
+  </body>
+</html>
