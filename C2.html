@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+  <head>  
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <title>Interjurisdictional Support Orders [C]</title>
+  <!-- <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon"> -->
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Karla' type='text/css'>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  </head>
+  <body>
+  
+  <div class="container">
+	<div class="page-header">
+        <h1>Interjurisdictional Support Orders [C]</h1>
+        <p class="lead">Provincial Law Procedures: Variation Proceedings <br>
+		<i>(ISO Act &amp; Family Law Act)</i>
+		</p>
+		<p><button class="btn" onclick="location.reload()">Restart</button></p>
+      </div>
+	  
+	  <div class="question" id="q1">
+	  <h3>Is the Applicant a resident of NL?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="1" onclick="QuestionResponse1()" value="yes">Yes</label>
+		<label><input type="radio" name="1" onclick="QuestionResponse1()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q2">
+	  <h3>Is the Respondent a resident of NL?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="2" onclick="QuestionResponse2()" value="yes">Yes</label>
+		<label><input type="radio" name="2" onclick="QuestionResponse2()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q3">
+	  <h3>Is the Applicant a resident of an ISO Reciprocating Jurisdiction?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="3" onclick="QuestionResponse3()" value="yes">Yes</label>
+		<label><input type="radio" name="3" onclick="QuestionResponse3()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q4a">
+	  <h3>Is the order that is being varied from an ISO Reciprocating Jurisdiction?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="4a" onclick="QuestionResponse4a()" value="yes">Yes</label>
+		<label><input type="radio" name="4a" onclick="QuestionResponse4a()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q4b">
+	  <h3>Is the order that is being varied from an ISO Reciprocating Jurisdiction?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="4b" onclick="QuestionResponse4b()" value="yes">Yes</label>
+		<label><input type="radio" name="4b" onclick="QuestionResponse4b()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q5a">
+	  <h3>Is the order a NL order?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="5a" onclick="QuestionResponse5a()" value="yes">Yes</label>
+		<label><input type="radio" name="5a" onclick="QuestionResponse5a()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q5b">
+	  <h3>Is the order a NL order?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="5b" onclick="QuestionResponse5b()" value="yes">Yes</label>
+		<label><input type="radio" name="5b" onclick="QuestionResponse5b()" value="no">No</label>
+	  </div>
+	  </div>
+	 
+	 <div class="question" id="q6">
+	  <h3>Is the Respondent a resident of an ISO Reciprocating Jurisdiction?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="6" onclick="QuestionResponse6()" value="yes">Yes</label>
+		<label><input type="radio" name="6" onclick="QuestionResponse6()" value="no">No</label>
+	  </div>
+	  </div>
+	 
+	  
+	  <div class="answer">
+	  <p id="answertext"></p>
+	  </div>	  
+  </div>
+  
+  <script type="text/javascript">
+  var a1 = "Applicant should seek legal advice if seeking to have laws of his/her jurisdiction apply. Applicant can agree to have <i>Family Law Act</i> apply and file an Originating Application in NL. Applicant will need to appear in court. Applicant should consider retaining counsel.";
+  var a2 = "Application to seek legal advice. Cannot use ISO to register the order in NL.";
+  var a3 = "File an Originating Application for Variation. Applicant will need to appear so consider having legal counsel in NL.";
+  var a4 = "Use ISO. (See process for incoming ISO variation applications in Presentation D. Also consider whether Applicant lives in a jurisdiction that requires a provisional order.)";
+  var a5 = "Use ISO to register non-NL order (Presentation D). Once registered, file Originating Application for Variation. Applicant will need to appear so consider having legal counsel in NL.";
+  var a6 = "No jurisdiction.";
+  var a7 = "See Presentation D (Slides D-7 to D-9)";
+  
+  
+   function autorun()
+   {
+		$('#q1').css("display", "inline");
+		//$('#answertext').html(a1);
+   }
+   if (window.addEventListener) window.addEventListener("load", autorun, false);
+   else if (window.attachEvent) window.attachEvent("onload", autorun);
+   else window.onload = autorun;
+   
+   function QuestionResponse1()
+   {
+	var response = $('input[name=1]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q1').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			$('#q6').css("display", "inline");
+			break;
+			case "no":
+			$('#q3').css("display", "inline");
+			break;
+			default:
+			break;
+		}
+	}
+   }
+   
+   function QuestionResponse2()
+   {
+	var response = $('input[name=2]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q2').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+				$('#q4').css("display", "inline");
+			break;
+			case "no":
+				$('#q3').css("display", "inline");
+			break;
+				default:
+				break;
+		}
+	}
+   }
+   
+   function QuestionResponse3()
+   {
+	var response = $('input[name=3]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q3').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+				$('#q4a').css("display", "inline");
+			break;
+			case "no":
+				$('#q4b').css("display", "inline");
+				break;
+			default:
+				break;
+		}
+	}
+   }
+   
+    function QuestionResponse4a()
+   {
+	var response = $('input[name=4a]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q4a').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			$('#q5a').css("display", "inline");
+			break;
+			case "no":
+			$('#answertext').html(a2);
+			break;
+			default:
+			break;
+		}
+	}
+   }
+   
+    function QuestionResponse4b()
+   {
+	var response = $('input[name=4b]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q4b').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			$('#q5b').css("display", "inline");
+			break;
+			case "no":
+			$('#answertext').html(a2);
+			break;
+			default:
+			break;
+		}
+	}
+   }
+
+    function QuestionResponse5a()
+   {
+	var response = $('input[name=5a]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q5a').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			$('#answertext').html("<b>Two options:</b><br><br>1) " + a3 + "<br><br>2) " + a4);
+			break;
+			case "no":
+			$('#answertext').html("<b>Two options:</b><br><br>1) " + a5 + "<br><br>2) " + a4);
+			break;
+			default:
+			break;
+		}
+	}
+   }
+   
+    function QuestionResponse5b()
+   {
+	var response = $('input[name=5b]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q5b').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			$('#answertext').html(a3);
+			break;
+			case "no":
+			$('#answertext').html(a5);
+			break;
+			default:
+			break;
+		}
+	}
+   }
+
+    function QuestionResponse6()
+   {
+	var response = $('input[name=6]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q6').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+				$('#q4a').css("display", "inline");
+				break;
+			case "no":
+				$('#q4a').css("display", "inline");
+				break;
+			default:
+				break;
+		}
+	}
+   }   
+   function QuestionResponse7()
+   {
+	var response = $('input[name=7]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q7').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			
+			break;
+			case "no":
+			
+			break;
+			default:
+			break;
+		}
+	}
+   }
+  </script>
+  </body>
+</html>

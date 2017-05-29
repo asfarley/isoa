@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+  <head>  
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <title>Interjurisdictional Support Orders [C]</title>
+  <!-- <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon"> -->
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Karla' type='text/css'>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  </head>
+  <body>
+  
+  <div class="container">
+	<div class="page-header">
+        <h1>Interjurisdictional Support Orders [C]</h1>
+        <p class="lead">Provincial Law Procedures: Initial Support Application <br>
+		<i>(ISO Act &amp; Family Law Act)</i>
+		</p>
+		<p><button class="btn" onclick="location.reload()">Restart</button></p>
+      </div>
+	  
+	  <div class="question" id="q1">
+	  <h3>Are both the Applicant and Respondent resident in NL?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="1" onclick="QuestionResponse1()" value="yes">Yes</label>
+		<label><input type="radio" name="1" onclick="QuestionResponse1()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q2">
+	  <h3>Is the Applicant resident in NL?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="2" onclick="QuestionResponse2()" value="yes">Yes</label>
+		<label><input type="radio" name="2" onclick="QuestionResponse2()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q3">
+	  <h3>Is the Respondent resident in NL?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="3" onclick="QuestionResponse3()" value="yes">Yes</label>
+		<label><input type="radio" name="3" onclick="QuestionResponse3()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q4">
+	  <h3>Is the Respondent resident in a Reciprocating Jurisdiction?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="4" onclick="QuestionResponse4()" value="yes">Yes</label>
+		<label><input type="radio" name="4" onclick="QuestionResponse4()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q5">
+	  <h3>Is the Respondent resident in Quebec or another jurisdiction that requres a Provisional Order?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="5" onclick="QuestionResponse5()" value="yes">Yes</label>
+		<label><input type="radio" name="5" onclick="QuestionResponse5()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q6">
+	  <h3>Is the Applicant resident in a Reciprocating Jurisdiction?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="6" onclick="QuestionResponse6()" value="yes">Yes</label>
+		<label><input type="radio" name="6" onclick="QuestionResponse6()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q7">
+	  <h3>Is the Applicant a resident of an ISO Reciprocating Jurisdiction?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="7" onclick="QuestionResponse7()" value="yes">Yes</label>
+		<label><input type="radio" name="7" onclick="QuestionResponse7()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q8">
+	  <h3>Is the order that is being varied from an ISO Reciprocating Jurisdiction?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="8" onclick="QuestionResponse8()" value="yes">Yes</label>
+		<label><input type="radio" name="8" onclick="QuestionResponse8()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q9">
+	  <h3>Is the order a NL order?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="9" onclick="QuestionResponse9()" value="yes">Yes</label>
+		<label><input type="radio" name="9" onclick="QuestionResponse9()" value="no">No</label>
+	  </div>
+	  </div>
+	 
+	 <div class="question" id="q10">
+	  <h3>Is the Respondent a resident of an ISO Reciprocating Jurisdiction?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="10" onclick="QuestionResponse10()" value="yes">Yes</label>
+		<label><input type="radio" name="10" onclick="QuestionResponse10()" value="no">No</label>
+	  </div>
+	  </div>
+	 
+	  
+	  <div class="answer">
+	  <p id="answertext"></p>
+	  </div>	  
+  </div>
+  
+  <script type="text/javascript">
+  var a1 = "File Originating Application; <i>Family Law Act</i> applies.";
+  var a2 = "File Originating Application; <i>Family Law Act</i> applies but see a lawyer as there may be issues of service, jurisdiction and enforcement.";
+  var a3 = "File Originating Application (<i>Family Law Act</i> applies) and hope Respondent attorns to NL jurisdiction. If Respondent does not attorn, Applicant can discontinue and pursue an ISO.";
+  var a4 = "Applicant files outgoing ISO Application through SEP - no filings in NL court.";
+  var a5 = "Applicant files ISO forms in their jurisdiction which are sent to SEP. NL Court not involved until receipt of incoming ISO Application. (Presentation D)";
+  var a6 = "Applicant should seek legal advice if seeking to have laws of his/her jurisdiction apply. Applicant can agree to have <i>Family Law Act</i> apply and file an Originating Application in NL. Applicant will need to appear in court. Applicant should consider retaining counsel.";
+  var a7 = "Application to seek legal advice. Cannot use ISO to register the order in NL.";
+  var a8 = "File an Originating Application for Variation. Applicant will need to appear so consider having legal counsel in NL.";
+  var a9 = "Use ISO. (See process for incoming ISO variation applications in Presentation D. Also consider whether Applicant lives in a jurisdiction that requires a provisional order.";
+  var a10 = "Use ISO to register non-NL order (Presentation D). Once registered, file Originating Application for Variation. Applicant will need to appear so consider having legal counsel in NL.";
+  var a11 = "No jurisdiction.";
+  var a12 = "See Presentation D (Slides D-7 to D-9)";
+  
+  
+   function autorun()
+   {
+		$('#q1').css("display", "inline");
+   }
+   if (window.addEventListener) window.addEventListener("load", autorun, false);
+   else if (window.attachEvent) window.attachEvent("onload", autorun);
+   else window.onload = autorun;
+   
+   function QuestionResponse1()
+   {
+	var response = $('input[name=1]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q1').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			$('#answertext').html(a1);
+			break;
+			case "no":
+			$('#q2').css("display", "inline");
+			break;
+			default:
+			break;
+		}
+	}
+   }
+   
+   function QuestionResponse2()
+   {
+	var response = $('input[name=2]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q2').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+				$('#q4').css("display", "inline");
+			break;
+			case "no":
+				$('#q3').css("display", "inline");
+			break;
+				default:
+				break;
+		}
+	}
+   }
+   
+   function QuestionResponse3()
+   {
+	var response = $('input[name=3]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q3').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+				$('#q6').css("display", "inline");
+			break;
+			case "no":
+				$('#answertext').html(a11);
+				break;
+			default:
+				break;
+		}
+	}
+   }
+   
+    function QuestionResponse4()
+   {
+	var response = $('input[name=4]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q4').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			$('#q5').css("display", "inline");
+			break;
+			case "no":
+			$('#answertext').html(a2);
+			break;
+			default:
+			break;
+		}
+	}
+   }
+
+    function QuestionResponse5()
+   {
+	var response = $('input[name=5]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q5').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			$('#answertext').html(a12);
+			break;
+			case "no":
+			$('#answertext').html("<b>Two options:</b><br><br>1) " + a3 + "<br><br>2) " + a4);
+			break;
+			default:
+			break;
+		}
+	}
+   }
+
+    function QuestionResponse6()
+   {
+	var response = $('input[name=6]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q6').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+				$('#answertext').html("<b>Two options:</b><br><br>1) " + a5 + "<br><br>2) " + a6);
+				break;
+			case "no":
+				$('#answertext').html(a6);
+				break;
+			default:
+				break;
+		}
+	}
+   }   
+   function QuestionResponse7()
+   {
+	var response = $('input[name=7]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q7').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			
+			break;
+			case "no":
+			
+			break;
+			default:
+			break;
+		}
+	}
+   }
+  </script>
+  </body>
+</html>
