@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>  
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <title>Interjurisdictional Support Orders [D]</title>
+  <!-- <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon"> -->
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Karla' type='text/css'>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  </head>
+  <body>
+  
+  <div class="container">
+	<div class="page-header">
+        <h1>Interjurisdictional Support Orders [D]</h1>
+        <p class="lead">What to File and What Happens in Court</p>
+		<p><button class="btn" onclick="location.reload()">Restart</button></p>
+      </div>
+	  
+	  <div class="question" id="q1">
+	  <h3>Is there an outstanding variation application under the <i>Divorce Act</i> before another court?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="1" onclick="QuestionResponse1()" value="yes">Yes</label>
+		<label><input type="radio" name="1" onclick="QuestionResponse1()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q2">
+	  <h3>Is either party ordinarily resident in NL at the time of filing?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="2" onclick="QuestionResponse2()" value="yes">Yes</label>
+		<label><input type="radio" name="2" onclick="QuestionResponse2()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q3">
+	  <h3>Is the Applicant a resident of NL?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="3" onclick="QuestionResponse3()" value="yes">Yes</label>
+		<label><input type="radio" name="3" onclick="QuestionResponse3()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q4">
+	  <h3>Do both parties accept the Court's jurisdiction?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="4" onclick="QuestionResponse4()" value="yes">Yes</label>
+		<label><input type="radio" name="4" onclick="QuestionResponse4()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q5">
+	  <h3>Is the Respondent a resident of another Canadian Province?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="5" onclick="QuestionResponse5()" value="yes">Yes</label>
+		<label><input type="radio" name="5" onclick="QuestionResponse5()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q6">
+	  <h3>Is the Applicant a resident of another Canadian Province?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="6" onclick="QuestionResponse6()" value="yes">Yes</label>
+		<label><input type="radio" name="6" onclick="QuestionResponse6()" value="no">No</label>
+	  </div>
+	  </div>
+	  
+	  <div class="question" id="q7">
+	  <h3>Is the Respondent a resident of NL?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="7" onclick="QuestionResponse7()" value="yes">Yes</label>
+		<label><input type="radio" name="7" onclick="QuestionResponse7()" value="no">No</label>
+	  </div>
+	  </div>
+	 
+	  
+	  <div class="answer">
+	  <p id="answertext"></p>
+	  </div>	  
+  </div>
+  
+  <script type="text/javascript">
+  var a1 = "The other proceeding must be discontinued within 30 days of filing as that other court has jurisdiction.";
+  var a2 = "File Originating Application for Variation";
+  var a3 = "See Presentation D";
+  var a4 = "No jurisdiction";
+  var a5 = "File Originating Application for Variation in NL to proceed in 1 of 3 ways (See Presentation D)";
+  var a6 = "Applicant can file Originating Application for Variation in the province where Respondent resides. Applicant should consider having legal counsel appear in proceedings in the other province.";
+  var a7 = "File Originating Application for Variation and serve Respondent outside Canada. Applicant should obtain legal advice as there may be issues of service, jurisdiction and enforcement.";
+  var a8 = "File Originating Application for Variation in NL. Applicant should consider having legal counsel appear in proceedings in NL.";
+  var a9 = "Applicant should seek legal advice if he/she wishes to pursue an action in his/her jurisdiction. There may also be issues of jurisdiction and enforcement. Applicant can file an Originating Application for Variation in NL.";
+  var a10 = "File Originating Application for Variation in the province where Applicant resides to proceed in 1 of 3 ways. (See Presentation D)";
+  
+   function autorun()
+   {
+		$('#q1').css("display", "inline");
+		//$('#q1').css("visibility", "visible");
+		//$('#answertext').html(a3);
+   }
+   if (window.addEventListener) window.addEventListener("load", autorun, false);
+   else if (window.attachEvent) window.attachEvent("onload", autorun);
+   else window.onload = autorun;
+   
+   function QuestionResponse1()
+   {
+	var response = $('input[name=1]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q1').css("display", "none");
+		
+		switch(response)
+		{
+			case "yes":
+			$('#answertext').html(a1);
+			break;
+			case "no":
+			$('#q2').css("display", "inline");
+			$('#answertext').html("");
+			break;
+			default:
+			break;
+		}
+	}
+   }
+   
+   function QuestionResponse2()
+   {
+	var response = $('input[name=2]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q2').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			$('#q3').css("display", "inline");
+			break;
+			case "no":
+			$('#q4').css("display", "inline");
+			break;
+			default:
+			break;
+		}
+	}
+   }
+   
+   function QuestionResponse3()
+   {
+	var response = $('input[name=3]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q3').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			$('#q7').css("display", "inline");
+			break;
+			case "no":
+			$('#q6').css("display", "inline");
+			break;
+			default:
+			break;
+		}
+	}
+   }
+   
+    function QuestionResponse4()
+   {
+	var response = $('input[name=4]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q4').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			$('#answertext').html(a2);
+			break;
+			case "no":
+			$('#answertext').html(a4);
+			break;
+			default:
+			break;
+		}
+	}
+   }
+
+    function QuestionResponse5()
+   {
+	var response = $('input[name=5]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q5').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			$('#answertext').html("<b>Two options:</b><br><br>1) " + a5 + "<br><br>2) " + a6);
+			break;
+			case "no":
+			$('#answertext').html(a7);
+			break;
+			default:
+			break;
+		}
+	}
+   }
+
+    function QuestionResponse6()
+   {
+	var response = $('input[name=6]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q6').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			$('#answertext').html("<b>Two options:</b><br><br>1) " + a8 + "<br><br>2) " + a10);
+			break;
+			case "no":
+			$('#answertext').html(a9);
+			break;
+			default:
+			break;
+		}
+	}
+   }   
+   function QuestionResponse7()
+   {
+	var response = $('input[name=7]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q7').css("display", "none");
+		switch(response)
+		{
+			case "yes":
+			$('#answertext').html(a2);
+			break;
+			case "no":
+			$('#q5').css("display", "inline");
+			break;
+			default:
+			break;
+		}
+	}
+   }
+  </script>
+  </body>
+</html>
