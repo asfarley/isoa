@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>  
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <title>Interjurisdictional Support Orders [D]</title>
+  <!-- <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon"> -->
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Karla' type='text/css'>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  </head>
+  <body>
+  
+  <div class="container">
+	<div class="page-header">
+        <h1>Interjurisdictional Support Orders [D]</h1>
+        <p class="lead">What to File and What Happens in Court <br>
+		2. ISO Proceedings Initial Support Application </p>
+		<p><button class="btn" onclick="location.reload()">Restart</button></p>
+      </div>
+	  
+	  <div class="question" id="q1">
+	  <h3>Is the Applicant resident in NL?</h3>
+	  <div class="radio">
+		<label><input type="radio" name="1" onclick="QuestionResponse1()" value="yes">Yes</label>
+		<label><input type="radio" name="1" onclick="QuestionResponse1()" value="no">No</label>
+	  </div>
+	  </div>
+	 
+	  
+	  <div class="answer">
+	  <p id="answertext"></p>
+	  </div>	  
+  </div>
+  
+  <script type="text/javascript">
+  var a1 = "<h4>ISO Outgoing – Initial Application <br> Applicant resident in NL / Respondent resident in an ISO Reciprocating Jurisdiction</h4>";
+  var a2 = "1. Nothing filed with NL Court unless Respondent lives in a jurisdiction that requires a Provisional Order (eg. Quebec, United Kingdom, New Zealand, Germany, Hong Kong) .";
+  var a3 = "2. Applicant fills out ISO forms and files forms with SEP.";
+  var a4 = "3. SEP sends forms to designated authority in Respondent ’s jurisdiction. A court in the Respondent’s jurisdiction holds a hearing, obtains evidence from the Respondent and makes a support order.";
+  var a5 = "4. Before making a support order, the court in the Respondent ’s jurisdiction may refer the matter back to SEP to obtain more information from the Applicant.";
+  var a6 = "<h4>ISO Incoming - Initial Application</h4>";
+  var a7 = "1. SEP receives a claim for support , with supporting documents, from a Reciprocating Jurisdiction and forwards the Application for filing with the NL Court.";
+  var a8 = "2. A notice of hearing is sent to the Respondent only. [Please note that a recent NSCA decision (Waterman v. Waterman, 2014 NSCA 110) has found that Applicants and Respondents are both entitled to notice of hearing. ]";
+  var a9 = "3. The Respondent files a Response and information and documents using ISO forms.";
+  var a10 = "4. NL Court proceeds to a hearing without notice to the Applicant and makes an order on the basis of the documents sent from the Reciprocating Jurisdiction and the evidence given by the Respondent .";
+  var a11 = "5. Once the notice of hearing date is sent , any requests for postponement of the hearing date must be made by a party before a Justice of the Court.";
+  var a12 = "6. The Court can ask the SEP to obtain further information or documents from the Reciprocating Jurisdiction before making an order.";
+  var a13 = "7. SEP must send a certified copy of the support order to the designated authority in the Reciprocating Jurisdiction as soon as possible (s. 16).";
+  
+  
+   function autorun()
+   {
+		$('#q1').css("display", "inline");
+   }
+   if (window.addEventListener) window.addEventListener("load", autorun, false);
+   else if (window.attachEvent) window.attachEvent("onload", autorun);
+   else window.onload = autorun;
+   
+   function QuestionResponse1()
+   {
+	var response = $('input[name=1]:checked').val()
+	if (typeof response != 'undefined')
+	{
+		$('#q1').css("display", "none");
+		
+		switch(response)
+		{
+			case "yes":
+			$('#answertext').html(a1 + "<br><br>" + a2 + "<br><br>" + a3 + "<br><br>" + a4 + "<br><br>" + a5);
+			break;
+			case "no":
+			$('#answertext').html(a6 + "<br><br>" + a7 + "<br><br>" + a8 + "<br><br>" + a9 + "<br><br>" + a10 + "<br><br>" + a11 + "<br><br>" + a12 + "<br><br>" + a13);
+			break;
+			default:
+			break;
+		}
+	}
+   }
+  </script>
+  </body>
+</html>
