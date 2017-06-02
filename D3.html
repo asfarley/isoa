@@ -23,63 +23,16 @@
   <div class="container">
 	<div class="page-header">
         <h1>Interjurisdictional Support Orders [D]</h1>
-        <p class="lead">What to File and What Happens in Court</p>
+        <p class="lead">What to File and What Happens in Court <br>
+		3. ISO Procedings Variation Applications </p>
 		<p><button class="btn" onclick="location.reload()">Restart</button></p>
       </div>
 	  
 	  <div class="question" id="q1">
-	  <h3>Is there an outstanding variation application under the <i>Divorce Act</i> before another court?</h3>
+	  <h3>ISO Variation Application - Incoming or Outgoing?</h3>
 	  <div class="radio">
-		<label><input type="radio" name="1" onclick="QuestionResponse1()" value="yes">Yes</label>
-		<label><input type="radio" name="1" onclick="QuestionResponse1()" value="no">No</label>
-	  </div>
-	  </div>
-	  
-	  <div class="question" id="q2">
-	  <h3>Is either party ordinarily resident in NL at the time of filing?</h3>
-	  <div class="radio">
-		<label><input type="radio" name="2" onclick="QuestionResponse2()" value="yes">Yes</label>
-		<label><input type="radio" name="2" onclick="QuestionResponse2()" value="no">No</label>
-	  </div>
-	  </div>
-	  
-	  <div class="question" id="q3">
-	  <h3>Is the Applicant a resident of NL?</h3>
-	  <div class="radio">
-		<label><input type="radio" name="3" onclick="QuestionResponse3()" value="yes">Yes</label>
-		<label><input type="radio" name="3" onclick="QuestionResponse3()" value="no">No</label>
-	  </div>
-	  </div>
-	  
-	  <div class="question" id="q4">
-	  <h3>Do both parties accept the Court's jurisdiction?</h3>
-	  <div class="radio">
-		<label><input type="radio" name="4" onclick="QuestionResponse4()" value="yes">Yes</label>
-		<label><input type="radio" name="4" onclick="QuestionResponse4()" value="no">No</label>
-	  </div>
-	  </div>
-	  
-	  <div class="question" id="q5">
-	  <h3>Is the Respondent a resident of another Canadian Province?</h3>
-	  <div class="radio">
-		<label><input type="radio" name="5" onclick="QuestionResponse5()" value="yes">Yes</label>
-		<label><input type="radio" name="5" onclick="QuestionResponse5()" value="no">No</label>
-	  </div>
-	  </div>
-	  
-	  <div class="question" id="q6">
-	  <h3>Is the Applicant a resident of another Canadian Province?</h3>
-	  <div class="radio">
-		<label><input type="radio" name="6" onclick="QuestionResponse6()" value="yes">Yes</label>
-		<label><input type="radio" name="6" onclick="QuestionResponse6()" value="no">No</label>
-	  </div>
-	  </div>
-	  
-	  <div class="question" id="q7">
-	  <h3>Is the Respondent a resident of NL?</h3>
-	  <div class="radio">
-		<label><input type="radio" name="7" onclick="QuestionResponse7()" value="yes">Yes</label>
-		<label><input type="radio" name="7" onclick="QuestionResponse7()" value="no">No</label>
+		<label><input type="radio" name="1" onclick="QuestionResponse1()" value="incoming">Incoming</label>
+		<label><input type="radio" name="1" onclick="QuestionResponse1()" value="outgoing">Outgoing</label>
 	  </div>
 	  </div>
 	 
@@ -90,22 +43,26 @@
   </div>
   
   <script type="text/javascript">
-  var a1 = "The other proceeding must be discontinued within 30 days of filing as that other court has jurisdiction.";
-  var a2 = "File Originating Application for Variation";
-  var a3 = "See Presentation D";
-  var a4 = "No jurisdiction";
-  var a5 = "File Originating Application for Variation in NL to proceed in 1 of 3 ways (See Presentation D)";
-  var a6 = "Applicant can file Originating Application for Variation in the province where Respondent resides. Applicant should consider having legal counsel appear in proceedings in the other province.";
-  var a7 = "File Originating Application for Variation and serve Respondent outside Canada. Applicant should obtain legal advice as there may be issues of service, jurisdiction and enforcement.";
-  var a8 = "File Originating Application for Variation in NL. Applicant should consider having legal counsel appear in proceedings in NL.";
-  var a9 = "Applicant should seek legal advice if he/she wishes to pursue an action in his/her jurisdiction. There may also be issues of jurisdiction and enforcement. Applicant can file an Originating Application for Variation in NL.";
-  var a10 = "File Originating Application for Variation in the province where Applicant resides to proceed in 1 of 3 ways. (See Presentation D)";
+  var a1 = "<h4>ISO Outgoing – Variation Application</h4>";
+  var a2 = "1. The process is the same as with an outgoing initial application for support but also requires a certified copy of the support order that the Applicant is applying to vary.";
+  var a3 = "2. Nothing filed with NL Court unless Respondent lives in a jurisdiction that requires a Provisional Order (eg. Quebec, United Kingdom, New Zealand, Germany, Hong Kong) .";
+  var a4 = "3. Appl icant ls out ISO forms and les forms with SEP.";
+  var a5 = "4. SEP sends forms to designated authority in Respondent’s jurisdiction. A court in the Respondent’s jurisdiction holds a hearing, obtains evidence from the Respondent and makes a support order.";
+  var a6 = "5. Before making a support order, the court in the Respondent’s jurisdiction may refer the matter back to SEP to obtain more information from the Applicant .";
+  var a7 = "<h4>ISO Incoming – Variation Application</h4>";
+  var a8 = "1. SEP receives an Application for support , with supporting documents, including a certified copy of the order to be varied, from a Reciprocating Jurisdiction and forwards the Application and order for filing with the NL Court.";
+  var a9 = "2. A notice of hearing is sent to the Respondent only. [Please note that a recent NSCA decision (Waterman v. Waterman, 2014 NSCA 110) has found that Applicants and Respondents are both entitled to notice of hearing. ]";
+  var a10 = "3. The Respondent files a Response and information and documents using ISO forms.";
+  var a11 = "4. NL Court proceeds to a hearing without notice to the Applicant and makes an order on the basis of the documents sent from the Reciprocating Jurisdiction and the evidence given by the Respondent.";
+  var a12 = "5. Once the notice of hearing date is sent, any requests for postponement of the hearing date must be made by a party before a Justice of the Court .";
+  var a13 = "6. The Court can ask the SEP to obtain further information or documents from the Reciprocating Jurisdiction before making an order.";
+  var a14 = "7. SEP must send a certified copy of the support variation order to the designated authority in the Reciprocating Jurisdiction as soon as possible.";
+  var a15 = "8. If the support order that was varied was originally made in another Reciprocating Jurisdiction, the SEP must also send a certified copy of the variation order to the appropriate authority in that jurisdiction (s. 35).";
+  
   
    function autorun()
    {
 		$('#q1').css("display", "inline");
-		//$('#q1').css("visibility", "visible");
-		//$('#answertext').html(a3);
    }
    if (window.addEventListener) window.addEventListener("load", autorun, false);
    else if (window.attachEvent) window.attachEvent("onload", autorun);
@@ -120,131 +77,11 @@
 		
 		switch(response)
 		{
-			case "yes":
-			$('#answertext').html(a1);
+			case "outgoing":
+			$('#answertext').html(a1 + "<br><br>" + a2 + "<br><br>" + a3 + "<br><br>" + a4 + "<br><br>" + a5+ "<br><br>" + a6);
 			break;
-			case "no":
-			$('#q2').css("display", "inline");
-			$('#answertext').html("");
-			break;
-			default:
-			break;
-		}
-	}
-   }
-   
-   function QuestionResponse2()
-   {
-	var response = $('input[name=2]:checked').val()
-	if (typeof response != 'undefined')
-	{
-		$('#q2').css("display", "none");
-		switch(response)
-		{
-			case "yes":
-			$('#q3').css("display", "inline");
-			break;
-			case "no":
-			$('#q4').css("display", "inline");
-			break;
-			default:
-			break;
-		}
-	}
-   }
-   
-   function QuestionResponse3()
-   {
-	var response = $('input[name=3]:checked').val()
-	if (typeof response != 'undefined')
-	{
-		$('#q3').css("display", "none");
-		switch(response)
-		{
-			case "yes":
-			$('#q7').css("display", "inline");
-			break;
-			case "no":
-			$('#q6').css("display", "inline");
-			break;
-			default:
-			break;
-		}
-	}
-   }
-   
-    function QuestionResponse4()
-   {
-	var response = $('input[name=4]:checked').val()
-	if (typeof response != 'undefined')
-	{
-		$('#q4').css("display", "none");
-		switch(response)
-		{
-			case "yes":
-			$('#answertext').html(a2);
-			break;
-			case "no":
-			$('#answertext').html(a4);
-			break;
-			default:
-			break;
-		}
-	}
-   }
-
-    function QuestionResponse5()
-   {
-	var response = $('input[name=5]:checked').val()
-	if (typeof response != 'undefined')
-	{
-		$('#q5').css("display", "none");
-		switch(response)
-		{
-			case "yes":
-			$('#answertext').html("<b>Two options:</b><br><br>1) " + a5 + "<br><br>2) " + a6);
-			break;
-			case "no":
-			$('#answertext').html(a7);
-			break;
-			default:
-			break;
-		}
-	}
-   }
-
-    function QuestionResponse6()
-   {
-	var response = $('input[name=6]:checked').val()
-	if (typeof response != 'undefined')
-	{
-		$('#q6').css("display", "none");
-		switch(response)
-		{
-			case "yes":
-			$('#answertext').html("<b>Two options:</b><br><br>1) " + a8 + "<br><br>2) " + a10);
-			break;
-			case "no":
-			$('#answertext').html(a9);
-			break;
-			default:
-			break;
-		}
-	}
-   }   
-   function QuestionResponse7()
-   {
-	var response = $('input[name=7]:checked').val()
-	if (typeof response != 'undefined')
-	{
-		$('#q7').css("display", "none");
-		switch(response)
-		{
-			case "yes":
-			$('#answertext').html(a2);
-			break;
-			case "no":
-			$('#q5').css("display", "inline");
+			case "incoming":
+			$('#answertext').html(a7 + "<br><br>" + a8 + "<br><br>" + a9 + "<br><br>" + a10 + "<br><br>" + a11 + "<br><br>" + a12 + "<br><br>" + a13 + "<br><br>" + a14 + "<br><br>" + a15);
 			break;
 			default:
 			break;
